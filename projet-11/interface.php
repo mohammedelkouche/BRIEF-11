@@ -22,6 +22,29 @@
         <div>
             <input type="submit" name ="envoyer" value="calculer le totale de ma facture">
         </div>
+        <div>
+            <table>
+                <tr>
+                    <th>CONSOMMATION ELECRTICITE</th>
+                    <th>FACTURé</th>
+                    <th>P.U</th>
+                    <th>MONTANT HT</th>
+                    <th>TAUX TVA</th>
+                    <th>MONTANT TAEXES</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+            </table>
+        </div>
         
     </form>
     
@@ -33,21 +56,25 @@
  
             // Associative Arrays 
             $redevance = array(
-                "tarif_1" => 0.794 ;
-                "tarif_2" => 0.883 ;
-                "tarif_3" => 0.9451 ;
-                "tarif_4" => 1.04889 ;
-                "tarif_5" => 1.2915 ;
-                "tarif_6" => 1.4975 ;
+                "tarif_1" => 0.794 ,
+                "tarif_2" => 0.883 ,
+                "tarif_3" => 0.9451 ,
+                "tarif_4" => 1.04889 ,
+                "tarif_5" => 1.2915 ,
+                "tarif_6" => 1.4975 ,
             ) 
             
-            class Tache {
+            // class Tache {
 
-                // constructeur
-                public function__construct($BornMin,$BornMax,$Tarif){
-                    $this -> 
-                }
-            }
+            //     // constructeur
+
+            //     public function__construct($BornMin,$BornMax,$Tarif){
+            //         $this -> $BornMin = $BornMin ;
+            //         $this -> $BornMax = $BornMax ;
+            //         $this -> $Tarif = $Tarif ;
+
+            //     }
+            // }
             
             // tranche1 = new Tache (0,100,0.794);
             // tranche2 = new Tache (101,150,0.794);
@@ -59,16 +86,16 @@
             //  push dans le tableaux $tranches 
 
 
-           if(isset($_POST['envoyer'])){
-            $Ancien_index = $_POST["Ancien"] ;
-            $Nouvel_index = $_POST["Nouvel"] ;
-            $Consommation = $Nouvel_index - $Ancien_index  ;
-            // echo $Ancien_index ;   
-            // echo $Nouvel_index ;
-            // echo  $Consommation ;
+        //    if(isset($_POST['envoyer'])){
+        //     $Ancien_index = $_POST["Ancien"] ;
+        //     $Nouvel_index = $_POST["Nouvel"] ;
+        //     $Consommation = $Nouvel_index - $Ancien_index  ;
+        //     // echo $Ancien_index ;   
+        //     // echo $Nouvel_index ;
+        //     // echo  $Consommation ;
               
 
-            }
+        //     }
     ?>
 
 </body>

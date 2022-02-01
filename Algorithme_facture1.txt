@@ -1,0 +1,70 @@
+	Algorithme facture d'électricité
+
+variable 
+	ancien ,nouvel ,consomation ,resulta1 ,montantTaxe1 ,calibre ,
+	redevence ,montantTaxe2 ,TauxTVA  ,sousTotalMT ,sousTotalHT ,totalelectricité, 
+
+
+constante
+	tarif1 = 0.794
+	tarif2 = 0.883
+	tarif3 = 0.9451
+	tarif4 = 1.0489
+	taucTVA = 14%
+	tamber = 0.45
+
+begin
+	ecrire("Entre l'ancien index:")
+	lire(ancien)
+	
+	Ecrire("Entre la nouvel index:")
+	lire(nouvel)
+
+	consomation <-- nouvel - ancien
+
+   if consomation < 150 then
+
+   	if consomation =< 100 then
+		resulta1     <-- consomation * tarif1
+	 	montantTaxe1 <-- resulta1 * TauxTVA
+        end if
+    		
+
+	ecrire("type de calibre")
+	lire(calibre)
+	
+     	if calibre >= 5 and calibre =< 10 then
+		redevande        <-- 22.65
+		montantTaxe2     <-- redevence * TauxTVA
+		totalTVA         <-- montantTaxe1 + montantTaxe2
+		sousTotalMT      <-- totalTVA + tamber
+		sousTotalHT      <-- resulta1 + redevence
+		totalelectricité <-- sousTotalMT + sousTotalHT
+        end if
+
+     	elseif calibre >=15 and calibre <= 20 then 
+        	redevence        <-- 37,35  ;
+        	Montant tax2     <-- redevence + tauxtva ;
+        	totaltva         <-- Montant tax1 + Montant tax2 ;
+        	soustotalMT      <-- totaltva + Montant tax2 ;
+        	soustotalHT      <-- resulta1 + redevence ;
+        	totalelectricite <-- soustotalMT + soustotalHT ;
+        	ecrire( "totalelectricite "+totalelectricite ) ;
+     	end if
+
+     	elseif calibre > 30 then 
+
+       		redevence        <-- 46,20  ;
+      		Montant tax2     <-- redevence + tauxtva ;
+       		totaltva         <-- Montant tax1 + Montant tax2 ;
+       		soustotalMT      <-- totaltva + Montant tax2 ;
+       		soustotalHT      <-- resulta1 + redevence ;
+       		totalelectricite <-- soustotalMT + soustotalHT ;
+       		ecrire( "totalelectricite "totalelectricite ) ;
+     	end if
+   end if
+
+end 
+   // elseif consomation < 150 then
+
+   

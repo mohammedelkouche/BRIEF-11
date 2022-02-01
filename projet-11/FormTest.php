@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="form.php" method= "POST" >
+    <form action="FormTest.php" method= "POST" >
         <input type="text" name ="ancien" placeholder= "l'ancien index">
         <input type="text" name = "nouvel" placeholder= "le nouvel index">
         <input type="submit" name ="envoyer" value="envoyer">
@@ -20,7 +20,7 @@
 
     // }
   
-
+    
     if(isset($_POST['envoyer'])){
     $Ancien_index = $_POST["ancien"] ;
     $Nouvel_index = $_POST["nouvel"] ;
@@ -47,8 +47,8 @@
             $result_1 = 100 * $tarif_1 ;
             $tranch_2 = $Consommation - 100 ;
             $result_2 = $tranch_2 * $tarif_2 ;
-            echo "le montant HT ".$result_1 ."<br>";
-            echo "le montant HT ".$result_2 ."<br>";
+            echo "le montant HT du tranche 1".$result_1 ."<br>";
+            echo "le montant HT du tranche 2".$result_2 ."<br>";
             echo "le montant taxes du tranche 1 : ".$montant_taxes = $result_1 * $taux_TVA ."<br>";
             echo "le montant taxes du tranche 2 : ".$montant_taxes = $result_2 * $taux_TVA ."<br>";
 
@@ -66,7 +66,6 @@
             
         }
 
-    // 40
     elseif($Consommation>=211 && $Consommation<=310){
           $result_4 = 210 * $tarif_3;
           echo $result_4 . "<br>";
@@ -77,7 +76,7 @@
         //   echo $result_4;
           echo $result_5;
 
-    }
+        }
     }
 
 
