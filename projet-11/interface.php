@@ -68,20 +68,20 @@
 
             //     // constructeur
 
-            //     public function__construct($BornMin,$BornMax,$Tarif){
-            //         $this -> $BornMin = $BornMin ;
-            //         $this -> $BornMax = $BornMax ;
+            //     public function__construct($Min,$Max,$Tarif){
+            //         $this -> $BornMin = $Min ;
+            //         $this -> $BornMax = $Max ;
             //         $this -> $Tarif = $Tarif ;
 
             //     }
             // }
             
-            // tranche1 = new Tache (0,100,0.794);
-            // tranche2 = new Tache (101,150,0.794);
-            // tranche3 = new Tache (0,100,0.794);
-            // tranche4 = new Tache (0,100,0.794);
-            // tranche5 = new Tache (0,100,0.794);
-            // tranche6 = new Tache (0,100,0.794);
+            // tranche1 = new Tache (0,100,$redevance[tarif_1]);
+            // tranche2 = new Tache (101,150,$redevance[tarif_2]);
+            // tranche3 = new Tache (0,100,$redevance[tarif_3]);
+            // tranche4 = new Tache (0,100,$redevance[tarif_4]);
+            // tranche5 = new Tache (0,100,$redevance[tarif_5]);
+            // tranche6 = new Tache (0,100,$redevance[tarif_6]);
 
             //  push dans le tableaux $tranches 
 
