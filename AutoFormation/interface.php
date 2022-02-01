@@ -61,7 +61,7 @@
                 "tarif_3" => 0.9451 ,
                 "tarif_4" => 1.04889 ,
                 "tarif_5" => 1.2915 ,
-                "tarif_6" => 1.4975 ,
+                "tarif_6" => 1.4975 
             ) 
             
             // class Tache {
@@ -88,7 +88,7 @@
 
         //    if(isset($_POST['envoyer'])){
         //     $Ancien_index = $_POST["Ancien"] ;
-        //     $Nouvel_index = $_POST["Nouvel"] ;
+        //     $Nouvelle_index = $_POST["Nouvel"] ;
         //     $Consommation = $Nouvel_index - $Ancien_index  ;
         //     // echo $Ancien_index ;   
         //     // echo $Nouvel_index ;
