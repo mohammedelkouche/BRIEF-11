@@ -16,3 +16,14 @@ form,input{
 /* .radio{
 
 } */
+td{
+    text-align: center;
+}
+.stylp{
+    font-size: 15px;
+    color: rgb(117, 117, 117);
+    font-style: italic;
+}
+#div-radio{
+    margin: 20px;
+}

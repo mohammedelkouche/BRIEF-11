@@ -102,7 +102,7 @@
         }
         $sousTotalMontantHT = $totalMontantHT + $redevance[$calibre];
         foreach ($montantsTaxes as $key => $value){
-            $totalMontanttaxes += $montantsTaxes[$key];
+            $totalMontanttaxes += $montantsTaxes[$key]; 
         }
         $totalTva = $totalMontanttaxes + $montantTaxesCalibre ;
         $sousTotalMontanttaxes = $totalTva + $timbre ;
@@ -126,13 +126,33 @@
     <form action="index.php" method="POST">
         <input class="entrer" type="text" name="oldIndex" placeholder= "Ancien index">
         <input class="entrer" type="text" name="newIndex" placeholder= "Nouvel index"> <br>
-        <input class="radio" type="radio" value="small" name="calibre" >small<br>
-        <input class="radio" type="radio" value="medium" name="calibre">medium<br>
-        <input class="radio" type="radio" value="large" name="calibre">large <br>
-        <input type="submit" value="calcul" name="submit">
+        <div id="div-radio" >
+            <div class="form-check form-check-inline">
+                <input class="radio" type="radio" value="small" name="calibre" >small<br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="radio" type="radio" value="medium" name="calibre">medium<br>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="radio" type="radio" value="large" name="calibre">large <br>
+            </div>
+        </div> 
+        <div>
+            <input type="submit" class="btn mb-2 btn-info" value="calcul" name="submit">
+        </div>   
+ 
+       
     </form>
-
-    <table class="table table-bordered table-hover table-light table-striped ">
+    <?php 
+        if(isset($_POST["submit"])){
+    ?>
+    <div>
+    <table class="table  table-hover table-light table-striped ">
+        <tr>
+            <th colspan="2">Ancien index :<?php echo $oldIndex ?></th>
+            <th colspan="2">Nouvel index :<?php echo $newIndex ?></th>
+            <th colspan="2">Consommation :<?php echo  $consommation ?></th>
+        </tr>
         <tr>
             <th>CONSOMMATION ELECRTICITE</th>
             <th>FACTURé</th>
@@ -146,7 +166,7 @@
                 foreach($montantsFacture as $key => $value) {
         ?>
             <tr>
-                <td><?php echo $consomationTranche[$key] ;?></td>
+                <th class="stylp"><?php echo $consomationTranche[$key] ;?></th>
                 <td><?php echo $value ;?></td>
                 <td><?php echo $tarifs[$key]->tarif ;?></td>
                 <td><?php echo $montantsHT[$key] ;?></td>
@@ -159,7 +179,7 @@
             }
         ?>
         <tr>
-            <td>REDEVANCE FIX ELECTRICITE</td>          
+            <th>REDEVANCE FIX ELECTRICITE</th>          
             <td></td>
             <td></td>
             <td><?php  echo $redevance[$calibre];?></td> 
@@ -167,7 +187,7 @@
             <td><?php echo $montantTaxesCalibre ;?></td> 
         </tr>
         <tr>
-            <td>TAXES POUR LE COMPTE DE L'ETAT</td>
+            <th>TAXES POUR LE COMPTE DE L'ETAT</th>
             <td></td>
             <td></td>
             <td></td>
@@ -175,7 +195,7 @@
             <td></td>
         </tr>
         <tr>
-            <td>TOTAL TVA </td>
+            <th class="stylp">TOTAL TVA</th>
             <td></td>
             <td></td>
             <td></td>
@@ -183,7 +203,7 @@
             <td><?php echo $totalTva ; ?></td>
         </tr>
         <tr>
-            <td>TIMBRE </td>
+            <th class="stylp">TIMBRE</th>
             <td></td>
             <td></td>
             <td></td>
@@ -191,7 +211,7 @@
             <td><?php echo $timbre ?></td>
         </tr>
         <tr>
-            <td>SOUS-TOTAL</td>
+            <th>SOUS-TOTAL</th>
             <td></td>
             <td></td>
             <td><?php echo $sousTotalMontantHT ;?></td>
@@ -199,16 +219,19 @@
             <td><?php echo $sousTotalMontanttaxes ;?></td>
         </tr>
         <tr>
-            <td>TOTAL ELECTICITE</td>
-            <td></td>
-            <td></td>
-            <td><?php echo $totalElecricité ;?></td>
-            <td></td>
-            <td></td>
+            <th>TOTAL ELECTICITE</th>
+            <td colspan = "5" id="totalElecricité"><?php echo $totalElecricité ;?></td>
         </tr>
-
-        
     </table>
+
+
+
+    <?php 
+        }
+     ?>
+        <button id="PRINT-BTN" onclick="printTable()">Print</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
 
