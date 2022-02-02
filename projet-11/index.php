@@ -147,7 +147,7 @@
         if(isset($_POST["submit"])){
     ?>
     <div>
-    <table class="table  table-hover table-light table-striped ">
+    <table id="table" class="table  table-hover table-light table-striped ">
         <tr>
             <th colspan="2">Ancien index :<?php echo $oldIndex ?></th>
             <th colspan="2">Nouvel index :<?php echo $newIndex ?></th>
@@ -229,8 +229,9 @@
     <?php 
         }
      ?>
-        <button id="PRINT-BTN" onclick="printTable()">Print</button>
     </div>
+    <button id="PRINT-BTN" onclick="printTable()">Print</button>
+
     <script src="script.js"></script>
 </body>
 </html>
