@@ -122,44 +122,58 @@
     <title>calcul</title>
 </head>
 <body>
-    <h1>SIMULATEUR DE FACTURE D'ELECTRICITE</h1>
-    <form action="index.php" method="POST">
-        <input class="entrer" type="text" name="oldIndex" placeholder= "Ancien index">
-        <input class="entrer" type="text" name="newIndex" placeholder= "Nouvel index"> <br>
+    <form id="bgForm" class=" text-light text-center py-5 " action="index.php" method="POST">
+        <h1>SIMULATEUR DE FACTURE D'ELECTRICITE</h1>
+        <div class="py-5">
+            <input class="entrer" type="text" name="oldIndex" placeholder= "Ancien index">
+            <input class="entrer" type="text" name="newIndex" placeholder= "Nouvel index"> <br>
+        </div>
         <div id="div-radio" >
             <div class="form-check form-check-inline">
-                <input class="radio" type="radio" value="small" name="calibre" >small<br>
+                <input class="radio" type="radio" value="small" name="calibre" >PETIT<br>
             </div>
             <div class="form-check form-check-inline">
-                <input class="radio" type="radio" value="medium" name="calibre">medium<br>
+                <input class="radio" type="radio" value="medium" name="calibre">MOYEN<br>
             </div>
             <div class="form-check form-check-inline">
-                <input class="radio" type="radio" value="large" name="calibre">large <br>
+                <input class="radio" type="radio" value="large" name="calibre">GRAND<br>
             </div>
         </div> 
         <div>
-            <input type="submit" class="btn mb-2 btn-info" value="calcul" name="submit">
+            <input type="submit" class="btn btn-secondary mb-2 " value="CALCUL DE TOTAL" name="submit">
         </div>   
- 
+        <div>
+            <button id="PRINT-BTN" onclick="printTable()">Print</button>
+        </div>
        
     </form>
     <?php 
         if(isset($_POST["submit"])){
     ?>
     <div>
-    <table id="table" class="table  table-hover table-light table-striped ">
+    <table id="table" class="table  table-hover table-light  " >
         <tr>
-            <th colspan="2">Ancien index :<?php echo $oldIndex ?></th>
-            <th colspan="2">Nouvel index :<?php echo $newIndex ?></th>
-            <th colspan="2">Consommation :<?php echo  $consommation ?></th>
+            <th class="table-dark" colspan="2">Ancien index :<?php echo $oldIndex ?></th>
+            <th class="table-dark" colspan="3">Nouvel index :<?php echo $newIndex ?></th>
+            <th class="table-dark" colspan="2">Consommation :<?php echo  $consommation ?></th>
         </tr>
         <tr>
-            <th>CONSOMMATION ELECRTICITE</th>
-            <th>FACTURé</th>
-            <th>P.U</th>
-            <th>MONTANT HT</th>
-            <th>TAUX TVA</th>
-            <th>MONTANT TAEXES</th>
+            <th></th>
+            <th> مفوتر <br> FACTURé</th>
+            <th> س.و <br> P.U</th>
+            <th> المبلغ د.إ.ر <br> MONTANT HT</th>
+            <th> ض.ق.م <br> TAUX TVA</th>
+            <th> مبلغ الرسوم <br> MONTANT TAEXES</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th> CONSOMMATION ELECRTICITE</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th> ستھلاك الكھرباء  </th> 
         </tr>
         <?php
             if (isset($_POST["submit"])) {
@@ -172,6 +186,7 @@
                 <td><?php echo $montantsHT[$key] ;?></td>
                 <td><?php echo $tva . "%";?></td>
                 <td><?php echo $montantsTaxes[$key] ;?></td>
+                <th></th>
             </tr>
         
         <?php
@@ -184,7 +199,8 @@
             <td></td>
             <td><?php  echo $redevance[$calibre];?></td> 
             <td><?php  echo $tva . "%";?></td>
-            <td><?php echo $montantTaxesCalibre ;?></td> 
+            <td><?php echo $montantTaxesCalibre ;?></td>
+            <th> ثابتة إثاوة الكھرباء</th> 
         </tr>
         <tr>
             <th>TAXES POUR LE COMPTE DE L'ETAT</th>
@@ -193,6 +209,7 @@
             <td></td>
             <td></td>
             <td></td>
+            <th> الرسوم المؤداة لفائدة الدولة</th>
         </tr>
         <tr>
             <th class="stylp">TOTAL TVA</th>
@@ -201,6 +218,7 @@
             <td></td>
             <td></td>
             <td><?php echo $totalTva ; ?></td>
+            <th> مجموع ض.ق.م </th>
         </tr>
         <tr>
             <th class="stylp">TIMBRE</th>
@@ -209,6 +227,7 @@
             <td></td>
             <td></td>
             <td><?php echo $timbre ?></td>
+            <th الطابع ></th>
         </tr>
         <tr>
             <th>SOUS-TOTAL</th>
@@ -217,20 +236,19 @@
             <td><?php echo $sousTotalMontantHT ;?></td>
             <td></td>
             <td><?php echo $sousTotalMontanttaxes ;?></td>
+            <th> المجموع الجزئي </th>
         </tr>
         <tr>
             <th>TOTAL ELECTICITE</th>
             <td colspan = "5" id="totalElecricité"><?php echo $totalElecricité ;?></td>
+            <th> مجموع الكھرباء </th>
         </tr>
     </table>
-
-
 
     <?php 
         }
      ?>
     </div>
-    <button id="PRINT-BTN" onclick="printTable()">Print</button>
 
     <script src="script.js"></script>
 </body>
